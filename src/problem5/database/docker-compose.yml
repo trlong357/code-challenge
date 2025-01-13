@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  db-postgres:
+    image: postgres:13
+    container_name: ${ENV_DEPLOY}-${APP_NAME}-db-postgres
+    command: >
+      -c max_connections=1000
+      -c shared_buffers=1GB
+    restart: always
+    ports:
+      - "${DB_PORT_MOUNT}:5432"
+    env_file:
+      - .env
+    volumes:
+      - ./data/${ENV_DEPLOY}-db-postgres:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+
+networks:
+  app-network:
+    name: ${ENV_DEPLOY}-${APP_NAME}-app-network
+    driver: bridge
+    ipam:
+      driver: default
