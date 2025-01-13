@@ -1,0 +1,44 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fancy Form</title>
+
+  <!-- You may add more stuff here -->
+  <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- You may reorganise the whole HTML, as long as your form achieves the same effect. -->
+  <div class="swap-container">
+    <form onsubmit="return !1">
+      <div class="input-container">
+        <label for="from-amount">From</label>
+        <div class="transfer-amount-container">
+          <input type="number" id="from-amount" required>
+          <select id="from-amount-select">
+
+          </select>
+        </div>
+      </div>
+      <div class="arrow">
+        <i class="fas fa-arrow-down"></i>
+      </div>
+      <div class="input-container">
+        <label for="to-amount">To</label>
+        <div class="transfer-amount-container">
+          <input type="text" id="to-amount" readonly>
+          <select id="to-amount-select">
+
+          </select>
+        </div>
+      </div>
+      <button type="submit">Swap</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
